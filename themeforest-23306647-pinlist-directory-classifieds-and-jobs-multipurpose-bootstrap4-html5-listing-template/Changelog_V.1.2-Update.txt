@@ -1,0 +1,611 @@
+Pinlist To support For IE11
+
+///////////////////////////////////////////////
+Step-1 : (DIVIDE ALL JS INTO TWO SEPARATE JS FILES FROM CUSTOM.JS FILE (or) YOU CAN CHANGE THE ORDER IN CUSTOM.JS) 
+///////////////////////////////////////////////
+
+
+Open the custom.js file i.e (assets/js/custom.js)  
+
+ 1.//______________Loader ,
+ 2.//______________Active Class,
+ 3.//______________Cover Image,
+ 4.// ______________ Modal, 
+ 5. //______________ Back to Top ,
+ 6.//______________Rating Stars,
+ 7.//______________Quantity-right-plus
+ 8.//______________mCustomScrollbar
+ 9. //______________Chart-circle
+ 10.//______________Card Remove
+ 11.// ______________Card Collapse
+ 12.// ______________Card Full Screen
+ 13.// ______________Tooltip
+ 14.// ______________Popover
+ 
+ put all above mentioned scripts in custom.js file 
+ 
+ create another custom2.js file and put the remaining scripts under the function() i.e
+ 
+ 15.// ______________Owl-carousel-icons
+ 16.// ______________Owl-carousel-icons2
+ 17.// ______________Owl-carousel-icons3
+ 18.// ______________Owl-carousel-icons4
+ 19.// ______________Owl-carousel-icons5
+ 20.// ______________Owl-carousel-icons6
+ 21.// ______________Testimonial-owl-carousel2
+ 22.// ______________Testimonial-owl-carousel3
+ 23.// ______________Testimonial-owl-carousel4
+ 24.// ______________Testimonial-owl-carousel
+ 
+ and add the files link in your html files under the custom.js
+ 
+<!-- Custom Js-->
+<script src="../assets/js/custom.js"></script>
+<script src="../assets/js/custom2.js"></script>
+
+
+ 			(or)
+ 
+ 
+ instead of creating the new js file you can also separate the scripts in custom.js as shown below
+ 
+ (function($) {
+ 
+	 1.//______________Loader ,
+	 2.//______________Active Class,
+	 3.//______________Cover Image,
+	 4.// ______________ Modal, 
+	 5. //______________ Back to Top ,
+	 6.//______________Rating Stars,
+	 7.//______________Quantity-right-plus
+	 8.//______________mCustomScrollbar
+	 9. //______________Chart-circle
+	 10.//______________Card Remove
+	 11.// ______________Card Collapse
+	 12.// ______________Card Full Screen
+	 13.// ______________Tooltip
+	 14.// ______________Popover
+ 
+ })(jQuery);
+ 
+ (function($) {
+ 
+	  15.// ______________Owl-carousel-icons
+	  16.// ______________Owl-carousel-icons2
+	  17.// ______________Owl-carousel-icons3
+	  18.// ______________Owl-carousel-icons4
+	  19.// ______________Owl-carousel-icons5
+	  20.// ______________Owl-carousel-icons6
+	  21.// ______________Testimonial-owl-carousel2
+	  22.// ______________Testimonial-owl-carousel3
+	  23.// ______________Testimonial-owl-carousel4
+	 24.// ______________Testimonial-owl-carousel
+ 
+ })(jQuery);
+
+
+///////////////////////////////////////////////
+Step-2 : (UPDATE LOADER TO SUPPORT IE11) 
+///////////////////////////////////////////////
+
+--> Open all Html pages of pinlist and pinlist-admin 
+
+DELETE  <div id="loading"></div>
+
+ADD  <div id="global-loader"><img src="../assets/images/other/loader.svg" class="loader-img floating" alt=""></div> replace this in all html files
+
+--> Open dashboard.css 
+
+DELETE  /*----- Global Loader -----*/
+	#loading {
+	    position:fixed;
+	    z-index:50000;
+	    background: url(../images/other/loader.svg) no-repeat 50% 50% rgba(255, 255, 255);
+	    left:0;
+	    top:0;
+	    right:0;
+	    bottom:0;
+	    margin:0 auto
+	}
+	/*----- Global Loader -----*/
+
+
+ADD  /*----- Global Loader -----*/
+	#global-loader {
+	    position: fixed;
+	    z-index: 50000;
+	    background: #fff;
+	    left: 0;
+	    top: 0;
+	    right: 0;
+	    bottom: 0;
+	    height: 100%;
+	    width: 100%;
+	    margin: 0 auto;
+	    overflow: hidden;
+	}
+	.loader-img {
+	    position: absolute;
+	    left: 0;
+	    right: 0;
+	    text-align: center;
+	    top: 35%;
+	    margin: 0 auto;
+	}
+	/*----- Global Loader -----*/
+	
+--> Open custom.js and admin-custom.js
+
+ DELETE  // ______________Loader
+   	$(window).on("load", function(e) {
+   		$("#loading").fadeOut("slow");
+	})
+	
+
+   ADD // ______________ LOADER
+	$(window).on("load", function(e) {
+		$("#global-loader").fadeOut("slow");
+	})
+
+///////////////////////////////////////////////
+Step-3 : (ADD CSS IE11) 
+///////////////////////////////////////////////
+
+open dashboard.css add these addtional css to support ie11
+
+/*---- ie css ---*/
+
+ *::-ms-backdrop,  .custom-control-label{
+	position: static;
+}
+*::-ms-backdrop, .media-body, .media-left, .media-right {
+	display: list-item;
+	vertical-align: top;
+}
+*::-ms-backdrop, .table-responsive  .media-body, .media-left, .media-right {
+	display:table-cell;
+}
+ *::-ms-backdrop, .breadcrumb-3 li{
+	display:inline-block;
+	text-align:center;
+}
+ *::-ms-backdrop, .breadcrumb-4 li{
+	display:inline-block;
+	text-align:center;
+}
+ *::-ms-backdrop, .breadcrumb-1 li{
+	display:inline-block;
+	text-align:center;
+}
+ *::-ms-backdrop, .breadcrumb-2 li{
+	display:inline-block;
+	text-align:center;
+}
+ *::-ms-backdrop, .iteam-all-icon{
+	 height: 100%;
+ }
+ *::-ms-backdrop, .construction-image:before{
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    display: block;
+    z-index: 1;
+    left: 0;
+    right: 0;
+}
+*::-ms-backdrop, .page-h{
+	height:100%;
+}
+*::-ms-backdrop, .item-card7-img{
+	height:100%;
+}
+*::-ms-backdrop, .market-place .item-card7-img{
+	height:185px;
+}
+
+*::-ms-backdrop, .testimonia img{
+	height:100%;
+}
+*::-ms-backdrop, .item-card8-img{
+	height:100%;
+}
+*::-ms-backdrop, .item-card9-img{
+	height:100%;
+}
+
+*::-ms-backdrop,  .gradient-icon{
+	color:#6963ff;
+	background:none;
+}
+*::-ms-backdrop,  .xzoom{
+	height:436px;
+	width:100%
+}
+.imagecheck-image{
+	width:100%;
+}
+.blog-list .item7-card-img{
+	height:196px;
+}
+@media(max-width:1279px){
+	.blog-list .item7-card-img{
+		height:100%;
+	}
+}
+.arrow-ribbon-2 {
+    color: #FFF;
+    padding: 3px 8px;
+    position: absolute;
+    z-index: 9999;
+    font-size: 20px;
+}
+.arrow-ribbon-2:before {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    content: "";
+    right: -24px;
+    border-top: 16px solid transparent;
+    border-left: 24px solid #6963ff;
+    border-bottom: 16px solid transparent;
+    width: 0;
+}
+@media(max-width:767px){
+	::-ms-backdrop, .item-card9-img{
+		height:inherit !important;
+	}
+	::-ms-backdrop, .item-card9-imgs {
+		height:100% !important;
+	}
+}
+.Marketplace .item-card7-imgs img{
+	height:185px;
+}
+
+@media(max-width:991px){
+	*::-ms-backdrop, .horizontal-megamenu .megamenu-content .link-list{
+		display:inline-table !important;
+	}
+}
+
+
+///////////////////////////////////////////////
+Step-4 : (ADD CLASS IN UNDERCONSTRUCTION 404 PAGE  TO SUPPORT IE11) 
+///////////////////////////////////////////////
+
+OPEN underconstruction and 404error page add page-h beside page class as shown below
+
+ add page-h class to <div class=" page"> as shown below 
+
+	<div class=" page page-h">
+			
+///////////////////////////////////////////////
+Step-4 : (ADD h-100 FOR card-body TO SUPPORT IE11) 
+///////////////////////////////////////////////
+
+--> Open (index4.html, intro-page.html, popup-login.html, header-style1.html, header-style2.html, header-style3.html, header-style4.html, footer-style.html, footer-style2.html, footer-style3.html, footer-style4.html)
+
+Go-to (Top Companies) section add h-100 for card-body to avoid spacing issue in ie11.
+
+    <------HTML------>
+
+    <div class="item">
+	<div class="card mb-0">
+	    <div class="card-body h-100">
+		<img src="../assets/images/clients/1.png" alt="company1">
+	    </div>
+	</div>
+    </div>
+    
+    add h-100 for all card-body in that section so that you won't get spacing issue in ie11
+    
+    
+    
+    
+--> Open  realestate.html and realestate-right.html
+
+go to (Affordable 2 BHK Flats Available in Gated Community) section add h-100 for card-body
+
+        <------HTML------>
+
+	<div class="card-body h-100">
+	    <div class="item-det mb-4">
+	       <a href="#" class="text-dark"><h3 class="">Affordable 2 BHK Flats Available in Gated Community</h3></a>
+	       
+
+    
+--> Open  education.html and education-right.html 
+
+go to (Business Management) section add h-100 for card-body
+
+          <------HTML------>
+
+          <!--Education Description-->
+	  <div class="card overflow-hidden">
+	      <div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+	  	  <div class="card-body h-100">
+	  	      <div class="item-det mb-4">
+	  		   <a href="#" class="text-dark"><h3 class="">Business Management</h3></a>
+	  		   
+	  		   
+
+--> Open  classified.html , classified-right.html , car.html ,car-right.html
+
+go to (Maruti Suzuki Alto) section add h-100 for card-body
+
+          <------HTML------>
+
+          <!--Classified Description-->
+	  <div class="card overflow-hidden">
+	      <div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+	  	  <div class="card-body h-100">
+	  	      <div class="item-det mb-4">
+	  		  <a href="#" class="text-dark"><h3 class="">Maruti Suzuki Alto</h3></a>
+	  		  
+--> Open  business.html and business-right.html
+
+go to (Globex) section add h-100 for card-body
+
+        <------HTML------>
+        
+    	<div class="card-body h-100">
+	    <div class="item-card7-desc">
+	    	 <a href="business.html" class="text-dark"><h4 class="font-weight-semibold">Globex</h4></a>
+	    </div>
+	    
+	    
+--> Open  marketplace.html and marketplace-right.html
+
+go to (Globex) section add h-100 for card-body
+
+       <------HTML------>
+        
+    	<!--Marketplace Content-->
+	<div class="card overflow-hidden">
+	     <div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+		 <div class="card-body h-100">
+		     <div class="item-det mb-4">
+			 <a href="#" class="text-dark"><h3 class="">Globex</h3></a>
+			 
+
+--> Open  travel.html and travel-right.html
+
+go to (Spain Beautiful places) section add h-100 for card-body
+
+       <------HTML------>
+        
+    	<!--Add listing-->
+	<section class="sptb">
+	   <div class="container">
+	      <div class="row">
+		 <div class="col-xl-8 col-lg-8 col-md-12">
+		   <div class="card overflow-hidden">
+		     <div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+			<div class="card-body h-100">
+			   <div class="item-det mb-4">
+			     <a href="#" class="text-dark"><h3 class="">Spain Beautiful places</h3></a>
+
+--> Open  books.html and books-right.html	
+
+go to (Excepteur sint occaecat) section add h-100 for card-body
+
+       <------HTML------>
+
+        div class="col-xl-8 col-lg-12 col-md-12">
+	   <!--Books Description-->
+	      <div class="card overflow-hidden">
+		 <div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">Urgent</span></div>
+		    <div class="card-body h-100">
+			<div class="item-det mb-1">
+			    <small class="text-muted">Action and adventure</small>
+				<a href="#" class="text-dark"><h3 class="">Excepteur sint occaecat</h3></a>
+				
+--> Open  reviews.html and reviews-right.html	
+
+go to (Maruti Suzuki Alto) section add h-100 for card-body
+
+      <------HTML------>
+
+       <div class="col-xl-8 col-lg-8 col-md-12">
+	<!--Classified Description-->
+	<div class="card overflow-hidden">
+		<div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+		<div class="card-body h-100">
+			<div class="item-det mb-4">
+				<a href="#" class="text-dark"><h3 class="">Maruti Suzuki Alto</h3></a>
+				
+
+--> Open  wedding.html and wedding-right.html	
+
+go to (Outdoor Wedding Style) section add h-100 for card-body
+
+       <------HTML------>
+
+       <div class="col-xl-8 col-lg-8 col-md-12">
+	   <div class="card overflow-hidden">
+		<div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+		   <div class="card-body h-100">
+			<div class="item-det mb-4">
+				<a href="#" class="text-dark"><h3 class="">Outdoor Wedding Style</h3></a>
+				
+
+--> Open  video.html and video-right.html	
+
+go to (Maruti Suzuki Alto) section add h-100 for card-body
+
+      <------HTML------>
+
+      <div class="col-xl-8 col-lg-8 col-md-12">
+      
+	<!--Classified Description-->
+	<div class="card overflow-hidden">
+		<div class="ribbon ribbon-top-right text-danger"><span class="bg-danger">featured</span></div>
+		<div class="card-body h-100">
+			<div class="item-det mb-4">
+				<a href="#" class="text-dark"><h3 class="">Maruti Suzuki Alto</h3></a>
+
+			
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+Step-5 : (ADD CLASS blog-list in  blog-list.html, blog-list-center.html, blog-list-right.html  IE11) 
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+--> Open  ( blog-list.html,blog-list-right.html,blog-list-center.html pages )
+
+add blog-list class to <div class="row no-gutters"> in above mentioned html pages as shown below to avoid spacing issue in ie11
+
+<div class="row no-gutters blog-list ">
+
+
+
+//////////////////////////////////////////////////////////////////////////////////////////////
+Step-6 : (ADD VIDEO PLUGIN IN plugins folder TO SUPPORT  IE11) 
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+--> Open ( video.html, video-right.html, video-list.html, video-list-right.html, video-text.html,  video-animation.html, venue-video.html,
+           tours-video.html, support-video.html,  software-video.html, review-video.html, realestate-video.html, marketplace-video.html , 
+           jobs-video.html, domain-search.html,   index20.html, auction.html,  book-video.html, business-video, car-video.html,classifieds-video.html,
+           coupons-video.html, doctor-video.html, domain-video.html, ecommerece-video.html, education-video.html,  ico-video.html )
+          
+      open all above mentioned pages 
+      
+      <------HTML------>
+      
+DELETE:      <!-- Video -->
+      	     <section id="index-video" class="hidden-xs relative sptb2">
+      		<div class="index-video-container bg-background2">
+      		    <div class="videocaption ">
+      			<div class="header-text mb-0">
+      			    <div class="container">
+      				<div class="text-center text-white">
+      				    <h1 class="mb-1">Browse Your ICO Icon</h1>
+      				    <p>It is a long established fact that a reader will be distracted by the readable.</p>
+      				    <a class="btn btn-secondary" href="">Browse Icon</a>
+      				</div>
+      			    </div>
+      			</div><!-- /header-text -->
+      		    </div>
+      		    <video autoplay loop muted>
+			<source src="../assets/video/300052515.mp4" type="video/mp4">
+			<!--<source src="video/19686358.webm" type="video/webm">
+			<source src="video/19686358.ogv" type="video/ogg">-->
+      		    </video>
+      	         </div>
+      	    </section>
+	    <!-- End of Video -->
+	    
+	   
+ADD :       <!-- Video -->
+		<div id="main">
+		    <section class="section-first bg-background2" data-vidbg-bg="mp4: ../assets/video/300052515.mp4, webm: ..assets/video/300052515.webm, poster: ../assets/video/video-img.jpg" data-vidbg-options="loop: true, muted: true, overlay: false">
+			<div class="header-text text mb-0">
+			    <div class="container">
+				<div class="text-center text-white ">
+				     <h1 class="mb-1">Multipurpose auction Site</h1>
+				     <p>It is a long established fact that a reader will be distracted by the readable.</p>
+				     <a class="btn btn-secondary" href="">Post Free Ad</a>
+				</div>
+			   </div>
+			</div>
+		    </section>
+		</div>
+		<!-- End of Video -->
+		
+ADD this css and js links in above mentioned pages
+
+                <------CSS------>
+
+		<!-- video css-->
+		<link href="../assets/plugins/video/video.css" rel="stylesheet" />
+		
+		
+		 <------JS------>
+		
+		<!-- video js -->
+		<script src="../assets/plugins/video/video.js"></script>
+		
+		
+		
+//////////////////////////////////////////////////////////////////////////////////////////////
+Step-7 : (ADD Image-Zoom PLUGIN IN plugins folder TO SUPPORT  IE11) 
+//////////////////////////////////////////////////////////////////////////////////////////////
+
+Open auction.html, ecommerce.html page 
+
+<------CSS------>
+
+DELETE:   <!-- Zoom Plugin -->
+	  <link href="../../assets/plugins/ecomerce/jquery.exzoom.css" rel="stylesheet" />
+
+
+ADD:      <!-- Zoom Plugin -->
+	  <link rel="stylesheet" href="../assets/plugins/Image-Zoom/css/main.css">         
+           
+<------JS------>          
+            
+DELETE:   <!--Zoom js -->
+	  <script src="../../assets/plugins/ecomerce/jquery.exzoom.js"></script>
+	  <script src="../../assets/plugins/ecomerce/exzoom.js"></script>  
+	  
+ADD:     <!-- Zoom Plugin -->
+	 <link href="../../assets/plugins/ecomerce/jquery.exzoom.css" rel="stylesheet" />
+           
+          
+<------HTML------>           
+           
+ DELETE:     <div class="zoom-container p-6">
+		 <div class="exzoom hidden" id="exzoom">
+		    <div class="exzoom_img_box">
+		    	<div class="arrow-ribbon2 bg-primary"><span class="day"></span></div>
+			<ul class='exzoom_img_ul'>
+			    <li><img src="../../assets/images/products/ecommerce/9.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/10.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/11.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/12.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/13.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/14.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/9.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/10.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/11.png" alt="img"></li>
+			    <li><img src="../../assets/images/products/ecommerce/12.png" alt="img"></li>
+		         </ul>
+		    </div>
+		    <div class="exzoom_nav"></div>
+		    <p class="exzoom_btn"><a class="exzoom_prev_btn" href="javascript:void(0);"><i class="pe-7s-angle-left-circle"></i></a> <a class="exzoom_next_btn" href="javascript:void(0);"><i class="pe-7s-angle-right-circle"></i></a></p>
+	         </div>
+	     </div>         
+           
+          
+  ADD:        <div class=" pb-0 image-zoom-container">
+	           <div class="arrow-ribbon-2 bg-primary"><span class="day">90 Days 20 : 35 : 51</span></div>
+		    <div class="show image-zoom" href="../assets/images/products/ecommerce/9.png">
+		        <img src="../assets/images/products/ecommerce/9.png" id="show-img">
+		    </div>
+		    <div class="small-img">
+			<img src="../assets/plugins/Image-Zoom/images/online_icon_right@2x.png" class="icon-left" alt="" id="prev-img">
+			<div class="small-container">
+			    <div id="small-img-roll">
+				<img src="../assets/images/products/ecommerce/10.png" class="show-small-img" alt="">
+				<img src="../assets/images/products/ecommerce/11.png" class="show-small-img" alt="">
+				<img src="../assets/images/products/ecommerce/12.png" class="show-small-img" alt="">
+				<img src="../assets/images/products/ecommerce/13.png" class="show-small-img" alt="">
+				<img src="../assets/images/products/ecommerce/14.png" class="show-small-img" alt="">
+				<img src="../assets/images/products/ecommerce/9.png" class="show-small-img" alt="">
+				<img src="../assets/images/products/ecommerce/10.png" class="show-small-img" alt="">
+			   </div>
+			</div>
+			<img src="../assets/plugins/Image-Zoom/images/online_icon_right@2x.png" class="icon-right" alt="" id="next-img">
+		   </div>
+	       </div>         
+           
+ DELETE : ecomerce folder from plugins      
+           
+ ADD:  Image-Zoom folder to plugins folder         
+           
+           
+          
+          
+           
+            
